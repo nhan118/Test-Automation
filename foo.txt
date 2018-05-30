@@ -1,0 +1,5 @@
+hello world
+creating a new branch dev
+create a new branch feature1 and then edit in master
+test no-ff merge
+test git fetch

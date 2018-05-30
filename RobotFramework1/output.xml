@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180423 22:12:44.518" generator="Robot 3.0.3 (Python 2.7.14 on win32)">
+<suite source="D:\mytest\robot\testedit.robot" id="s1" name="Testedit">
+<test id="s1-t1" name="edit">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>this is a test</arg>
+</arguments>
+<msg timestamp="20180423 22:12:44.545" level="INFO">this is a test</msg>
+<status status="PASS" endtime="20180423 22:12:44.546" starttime="20180423 22:12:44.545"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${a}</var>
+</assign>
+<msg timestamp="20180423 22:12:44.547" level="INFO">${a} = 5</msg>
+<status status="PASS" endtime="20180423 22:12:44.547" starttime="20180423 22:12:44.546"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${a}</arg>
+</arguments>
+<msg timestamp="20180423 22:12:44.548" level="INFO">5</msg>
+<status status="PASS" endtime="20180423 22:12:44.548" starttime="20180423 22:12:44.548"></status>
+</kw>
+<status status="PASS" endtime="20180423 22:12:44.549" critical="yes" starttime="20180423 22:12:44.544"></status>
+</test>
+<status status="PASS" endtime="20180423 22:12:44.553" starttime="20180423 22:12:44.521"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Testedit" pass="1">Testedit</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

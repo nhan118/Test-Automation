@@ -1,0 +1,34 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           Collections
+
+*** Test Cases ***
+Get
+    Create Session    getevent    http://192.168.1.13:8001/api
+    ${parm}    Create Dictionary    eid=1
+    ${resp}=    Get Request    getevent    /sec_get_event_list/    params=${parm}
+# 断言结果
+    Should Be Equal As Strings    ${resp.status_code}    200
+    ${result}=    Set Variable    ${resp.json()}
+    log    ${result}
+    ${msg}    Get From Dictionary    ${result}    message
+    Should Be Equal As Strings    ${msg}    success
+    ${eventinfo}    Get From Dictionary    ${result}    data
+    log    ${eventinfo}
+    ${eventname}=    Get From Dictionary    ${eventinfo}    name
+    ${evt}=    Convert To String    ${eventname}
+    Should Contain    ${evt}    红米
+
+Post
+    ${payload}    Create Dictionary    eid=10    name=荣耀 10发布会    limit=2000    address=深圳华为大厦10层    start_time=2018-03-30 14:00:00
+    Create Session    addevent    http://192.168.1.13:8001/api
+    ${header}=    Create Dictionary    Content-Type=application/x-www-form-urlencoded
+    ${resp}=    Post Request    addevent    /sec_add_event/    data=${payload}    headers=${header}
+    #断言结果
+    ${result}=    Set Variable    ${resp.json()}
+    Should Be Equal As Strings    ${result['status']}    10022
+    # Dictionary Should Contain Value    ${result}    add event success
+
+
+
+

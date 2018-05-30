@@ -1,0 +1,12 @@
+DELIMITER //
+CREATE PROCEDURE insertdata()
+BEGIN
+DECLARE i INT;
+SET i=52;
+WHILE (i<=1000) DO
+INSERT INTO t500 VALUES(i);
+SET i=i+1;
+END WHILE;
+END
+
+CALL insertdata();

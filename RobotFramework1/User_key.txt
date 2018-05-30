@@ -1,0 +1,9 @@
+*** Settings ***
+Resource          model.robot
+
+*** Test Cases ***
+test user key
+    for loop    5
+
+test2
+    for loop    10
